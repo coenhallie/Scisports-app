@@ -1,6 +1,18 @@
 # scisports-app
 
-> a football visualisation app
+> Test App for Scisports
+
+## Homepage
+![Racebets interface](https://github.com/coenhallie/scisports-app/blob/master/src/assets/homepage.jpg?raw=true "Title")
+
+## Techstack used
+
+  * Vue.js (Javascript framework)
+  * Echarts (Data Visualisation)
+  * Lodash (JavaScript utility library)
+  * Fetch (For fetching (asynchronous) data)
+  * Bulma (CSS framework based on Flexbox)
+
 
 ## Build Setup
 
