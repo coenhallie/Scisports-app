@@ -51,9 +51,9 @@
     </section>
     <section class="section">
       <div class="container">
-        <router-link to="/playerdata" class="button is-primary">Player Statistics</router-link>
+        <router-link to="/playerdata" class="button">Player Statistics</router-link>
         <chart :options='options' ref="scatter" auto-resize></chart>
-        <button class="button is-primary is-large" @click="fetchData">Load Goal Data</button>
+        <button class="button is-large" @click="fetchData">Load Goal Data</button>
       </div>
     </section>
   </div>
