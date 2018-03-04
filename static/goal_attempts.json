@@ -1,7 +1,6 @@
 [
   {
     "match_id": 2499217,
-    "team": "beta",
     "team_id": 8,
     "player_id": 16,
     "value": 0.139,
@@ -13,7 +12,6 @@
   },
   {
     "match_id": 2499217,
-    "team": "alpha",
     "team_id": 8,
     "player_id": 320,
     "value": 0.047,
@@ -25,7 +23,6 @@
   },
   {
     "match_id": 2499217,
-    "team": "beta",
     "team_id": 8,
     "player_id": 341,
     "value": 0.015,
@@ -37,7 +34,6 @@
   },
   {
     "match_id": 2499217,
-    "team": "alpha",
     "team_id": 8,
     "player_id": 341,
     "value": 0.037,

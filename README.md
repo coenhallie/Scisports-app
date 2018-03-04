@@ -3,7 +3,10 @@
 > Test App for Scisports
 
 ## Homepage
-![Racebets interface](https://github.com/coenhallie/scisports-app/blob/master/src/assets/homepage.jpg?raw=true "Title")
+![Homepage](https://github.com/coenhallie/scisports-app/blob/master/src/assets/homepage-new.png?raw=true "Title")
+
+## Player Statistics
+![Player page](https://github.com/coenhallie/scisports-app/blob/master/src/assets/player-page.png?raw=true "Title")
 
 ## Techstack used
 

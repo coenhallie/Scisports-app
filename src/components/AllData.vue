@@ -1,53 +1,62 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title">
-            Highest Player Value
-          </h1>
-          <h3 class="is-size-5">
-            <div v-if="!loading">
-              <h1>Please Load Chart</h1>
+  <div class="all-data">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h1 class="title">
+                Highest Player Value
+              </h1>
+              <h3 class="is-size-5">
+                <div v-if="!loading">
+                  <h1>Please Load Chart</h1>
+                </div>
+                <div v-else>
+                  <p> <b>Player Value:</b> {{this.biggestValues.value}}</p>
+                  <p> <b>Player ID:</b> {{this.biggestValues.player_id}}</p>
+                </div>
+              </h3>
             </div>
-            <div v-else>
-              <p> <b>Player Value:</b> {{this.biggestValues.value}}</p>
-              <p> <b>Player ID:</b> {{this.biggestValues.player_id}}</p>
+            <div class="column">
+              <h1 class="title">
+                Lowest Player Value
+              </h1>
+              <h3 class="is-size-5">
+                <div v-if="!loading">
+                  <p>Please Load Chart</p>
+                </div>
+                <div v-else>
+                  <p> <b>Player Value:</b> {{this.lowestValues.value}}</p>
+                  <p> <b>Player ID:</b> {{this.lowestValues.player_id}}</p>
+                </div>
+              </h3>
             </div>
-          </h3>
-        </div>
-        <div class="column">
-          <h1 class="title">
-            Lowest Player Value
-          </h1>
-          <h3 class="is-size-5">
-            <div v-if="!loading">
-              <p>Please Load Chart</p>
+            <div class="column">
+              <h1 class="title">
+                <img src="../../static/placeholder-player200.jpg">
+                <h3 class="is-size-5">
+                <div v-if="!loading">
+                  <h1>Please Load Chart</h1>
+                </div>
+                <div v-else>
+                  <p> <b>Average Player Value:</b> {{this.averageValue}}</p>
+                </div>
+              </h3>
+              </h1>
             </div>
-            <div v-else>
-              <p> <b>Player Value:</b> {{this.lowestValues.value}}</p>
-              <p> <b>Player ID:</b> {{this.lowestValues.player_id}}</p>
-            </div>
-          </h3>
-        </div>
-        <div class="column">
-          <h1 class="title">
-            <img src="../../static/placeholder-player200.jpg">
-            <h3 class="is-size-5">
-            <div v-if="!loading">
-              <h1>Please Load Chart</h1>
-            </div>
-            <div v-else>
-              <p> <b>Average Player Value:</b> {{this.averageValue}}</p>
-            </div>
-          </h3>
-          </h1>
+          </div>
         </div>
       </div>
-      <chart :options='options' ref="scatter" auto-resize></chart>
-      <button class="button is-primary is-large" @click="fetchData">Load Goal Data</button>
-    </div>
-  </section>
+    </section>
+    <section class="section">
+      <div class="container">
+        <router-link to="/playerdata" class="button is-primary">Player Statistics</router-link>
+        <chart :options='options' ref="scatter" auto-resize></chart>
+        <button class="button is-primary is-large" @click="fetchData">Load Goal Data</button>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -61,6 +70,7 @@ import maxBy from 'lodash/maxby'
 import chunk from 'lodash/chunk'
 import meanBy from 'lodash/meanby'
 import floor from 'lodash/floor'
+import filter from 'lodash/filter'
 
 export default {
   name: 'Heatmap',
@@ -153,6 +163,9 @@ export default {
               self.averageValue = floor(meanBy(data, 'value' ),2)
               self.playerID = map(data, 'player_id')
               self.matchID = map(data, 'match_id')
+              self.goal = map(data, 'goal')
+              self.onePlayer = filter(data, {'player_id': 295156})
+              console.log('match?', (self.onePlayer = filter(self.onePlayer, {'goal': 'True'})))
               self.result = self.positionX.reduce(function (arr, v, i) {
                 return (arr.concat(v, self.positionY[i], self.value[i], self.playerID[i], self.matchID[i]))
               }, [])
@@ -183,15 +196,25 @@ figure .echarts {
 }
 
 .button {
+  background: #ff8000;
+  color: #fff;
   margin-top: 30px;
 }
 
+.hero {
+  background: #161431;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+}
+
 .column {
+  background: #fff;
   justify-content: center;
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 5px 10px 23px rgba(31,28,87,.2);
   box-shadow: 5px 10px 23px rgba(31,28,87,.2);
+  border-radius: 4px;
   margin: 5px;
 }
 </style>
