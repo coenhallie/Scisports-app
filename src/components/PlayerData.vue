@@ -9,7 +9,7 @@
                 <input class="input is-medium" type="text" placeholder="Player Number" v-model="playernumber">
               </div>
             </div>
-        <button class="button is-large" @click="fetchData" v-bind:disabled="playernumber === ''">Load Player Data</button><br>
+        <button class="button is-primary is-large" @click="fetchData" :disabled="playernumber === ''">Load Player Data</button><br>
         <router-link to="/" class="button">All Match Statistics</router-link>
         <div v-if="this.goalAttempts === 0">
           <h3 class="title is-3 noresult">No data found</h3>
