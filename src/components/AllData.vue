@@ -46,12 +46,12 @@
               </h1>
             </div>
           </div>
+          <router-link to="/playerdata" class="button">Player Statistics</router-link>
         </div>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        <router-link to="/playerdata" class="button">Player Statistics</router-link>
         <chart :options='options' ref="scatter" auto-resize></chart>
         <button class="button is-large" @click="fetchData">Load Goal Data</button>
       </div>

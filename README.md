@@ -3,10 +3,10 @@
 > Test App for Scisports
 
 ## Homepage
-![Homepage](https://github.com/coenhallie/scisports-app/blob/master/src/assets/homepage-new.png?raw=true "Title")
+![Homepage](https://github.com/coenhallie/scisports-app/blob/master/src/assets/homepageapp.png?raw=true "Title")
 
 ## Player Statistics
-![Player page](https://github.com/coenhallie/scisports-app/blob/master/src/assets/player-page.png?raw=true "Title")
+![Player page](https://github.com/coenhallie/scisports-app/blob/master/src/assets/playerdata.png?raw=true "Title")
 
 ## Techstack used
 

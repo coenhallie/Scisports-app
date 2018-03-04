@@ -3,15 +3,23 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-            <h1 class="title is-1">Player Data</h1>
+          <h1 class="title is-1">Player Data</h1>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" type="text" placeholder="Player Number" v-model="playernumber">
+              </div>
+            </div>
+        <button class="button is-large" @click="fetchData" v-bind:disabled="playernumber === ''">Load Player Data</button><br>
+        <router-link to="/" class="button">All Match Statistics</router-link>
+        <div v-if="this.goalAttempts === 0">
+          <h3 class="title is-3 noresult">No data found</h3>
+        </div>
         </div>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        <router-link to="/" class="button">All Match Statistics</router-link>
         <chart :options='options' ref="scatter" auto-resize></chart>
-        <button class="button is-large" @click="fetchData">Load Player Data</button>
       </div>
     </section>
   </div>
@@ -38,11 +46,9 @@ export default {
   name: 'PlayerData',
   data () {
     return {
-      scatters: '',
-      biggestValues: [],
-      lowestValues: [],
-      averageValue: [],
+      scatters: [],
       goalNumber: [],
+      playernumber: '',
       loading: false
     }
   },
@@ -168,7 +174,7 @@ export default {
               return
             }
             response.json().then(function (data) {
-              self.playerData = filter(data, {'player_id': 295156})
+              self.playerData = filter(data, {'player_id': + self.playernumber})
               self.trueGoal = filter(self.playerData, {'goal': 'True'})
               self.onTarget = filter(self.playerData, {'on_target': 'True'})
               self.goalNumber = map(self.trueGoal).length
@@ -207,8 +213,8 @@ figure .echarts {
   color: #fff;
 }
 
-h2.test-class {
-  font-size: 30px;
+.noresult {
+  padding-top:30px;
 }
 
 .button {
