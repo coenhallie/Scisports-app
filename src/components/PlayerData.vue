@@ -6,7 +6,7 @@
           <h1 class="title is-1">Player Data</h1>
             <div class="field">
               <div class="control">
-                <input class="input is-medium" type="text" placeholder="Player Number" v-model="playernumber">
+                <input class="input is-medium" type="text" placeholder="Player ID e.g. 297839 " v-model="playernumber">
               </div>
             </div>
         <button class="button is-primary is-large" @click="fetchData" :disabled="playernumber === ''">Load Player Data</button><br>
@@ -124,40 +124,40 @@ export default {
           name: 'Player Value',
           type: 'bar',
           markLine: {
-              data: [{
-                  type: 'average',
-                  name: 'Average Value',
-                  lineStyle: {
-			              normal: {color:'#ff8000'}
-                  },
-                  label: { 
-                    normal: { 
-                    show: true,
-                    formatter: 'Average Value: {c}'
-                    }
-                  }
-              }]
+            data: [{
+              type: 'average',
+              name: 'Average Value',
+              lineStyle: {
+                normal: {color:'#ff8000'}
+              },
+              label: { 
+                normal: { 
+                show: true,
+                formatter: 'Average Value: {c}'
+                }
+              }
+            }]
           },
           markPoint: {
-              data: [{
-                  type: 'min',
-                  name: 'Min Value',
-                  itemStyle: {
-			              normal: {color:'#ff8000'}
-                  }
-                }, 
-                  {
-                  type: 'max',
-                  itemStyle: {
-			              normal: {color:'#ff8000'}
-			            }
-              }]
+            data: [{
+              type: 'min',
+              name: 'Min Value',
+              itemStyle: {
+                normal: {color:'#ff8000'}
+              }
+            }, 
+              {
+              type: 'max',
+              itemStyle: {
+                normal: {color:'#ff8000'}
+              }
+            }]
           },
           data: this.playerValue,
           tooltip: {
-              trigger: 'item',
-              formatter: '<b>Match ID:</b> {b} <br> <b>Player Value:</b> {c}'
-            }
+            trigger: 'item',
+            formatter: '<b>Match ID:</b> {b} <br> <b>Player Value:</b> {c}'
+          }
         }]
       }
     }

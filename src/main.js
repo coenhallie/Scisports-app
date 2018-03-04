@@ -6,7 +6,6 @@ import router from './router'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 import ECharts from 'vue-echarts/components/ECharts'
-import 'echarts/lib/chart/heatmap'
 
 Vue.use(Buefy)
 Vue.component('chart', ECharts)

@@ -73,7 +73,7 @@ import floor from 'lodash/floor'
 import filter from 'lodash/filter'
 
 export default {
-  name: 'Heatmap',
+  name: 'AllData',
   data () {
     return {
       scatters: [],
@@ -165,7 +165,6 @@ export default {
               self.matchID = map(data, 'match_id')
               self.goal = map(data, 'goal')
               self.onePlayer = filter(data, {'player_id': 295156})
-              console.log('match?', (self.onePlayer = filter(self.onePlayer, {'goal': 'True'})))
               self.result = self.positionX.reduce(function (arr, v, i) {
                 return (arr.concat(v, self.positionY[i], self.value[i], self.playerID[i], self.matchID[i]))
               }, [])
@@ -188,7 +187,6 @@ export default {
 .echarts {
   width: 100%;
   height: 600px;
-  background: #000;
 }
 
 figure .echarts {
